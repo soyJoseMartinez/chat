@@ -114,7 +114,7 @@ def delete_cookies():
 @app.route("/service56", methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        repo = git.Repo('/home/JuliaLopez/mysite/')
+        repo = git.Repo('/home/JuliaLopez/mysite/.git')
         origin = repo.remotes.origin
         origin.pull
         return 'Updated!', 200
