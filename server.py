@@ -3,7 +3,8 @@ from flask import Flask, redirect, request, render_template, url_for, send_file,
 import secrets
 import os
 import time
-import qrcode
+# import qrcode
+import git
 
 
 app = Flask(__name__)
@@ -110,6 +111,15 @@ def delete_cookies():
     resp.set_cookie("cookie_user", "", max_age=0)
     return resp
 
+@app.route('service56', methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        repo = git.Repo('/home/JuliaLopez/mysite/')
+        origin = repo.remotes.origin
+        origin.pull
+        return 'Updated!', 200
+    else:
+        return 'Wrong event type', 400
 
 if __name__ == "__main__":
     os.chdir(os.getcwd())
