@@ -111,7 +111,7 @@ def delete_cookies():
     resp.set_cookie("cookie_user", "", max_age=0)
     return resp
 
-@app.route('service56', methods=['POST'])
+@app.route("/service56", methods=['POST'])
 def webhook():
     if request.method == 'POST':
         repo = git.Repo('/home/JuliaLopez/mysite/')
@@ -124,10 +124,3 @@ def webhook():
 if __name__ == "__main__":
     os.chdir(os.getcwd())
     app.run()
-
-# import sys
-# path = '/home/JuliaLopez/mysite'
-# if path not in sys.path:
-#    sys.path.insert(0, path)
-#
-# from server import app as application
