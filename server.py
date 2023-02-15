@@ -114,3 +114,10 @@ def delete_cookies():
 if __name__ == "__main__":
     os.chdir(os.getcwd())
     app.run()
+
+# import sys
+# path = '/home/JuliaLopez/mysite'
+# if path not in sys.path:
+#    sys.path.insert(0, path)
+#
+# from server import app as application
